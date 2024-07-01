@@ -8,12 +8,11 @@ export default class AuthController {
       try {
         const payload = await request.validateUsing(registerValidator)
         
-        // Combinez firstname et lastname en fullName et supprimez les du payload
         const fullName = `${payload.firstname} ${payload.lastname}`;
         const user = await User.create({
-            fullName, // Utilisez seulement fullName
+            fullName,
             email: payload.email,
-            password: payload.password // Assurez-vous que le mot de passe est bien hashé avant de l'enregistrer
+            password: payload.password 
         })
 
         return response.created(user)
