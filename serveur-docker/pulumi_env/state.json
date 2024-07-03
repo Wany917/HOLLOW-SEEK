@@ -1,0 +1,231 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2024-06-28T22:53:29.332697273+02:00",
+            "magic": "fdff5d115ed98f71a6d1a039669a8634e8e3e1fb9e810720cb957e73b3c02d81",
+            "version": "v3.121.0"
+        },
+        "secrets_providers": {
+            "type": "service",
+            "state": {
+                "url": "https://api.pulumi.com",
+                "owner": "Strandiing",
+                "project": "Hollow_Seek",
+                "stack": "dev"
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:dev::Hollow_Seek::pulumi:pulumi:Stack::Hollow_Seek-dev",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2024-06-28T16:03:39.448137633Z",
+                "modified": "2024-06-28T16:03:39.448137633Z",
+                "sourcePosition": "project:///venv/lib/python3.12/site-packages/pulumi/runtime/stack.py#135"
+            },
+            {
+                "urn": "urn:pulumi:dev::Hollow_Seek::pulumi:providers:docker::default_4_5_4",
+                "custom": true,
+                "id": "e656e590-85b7-431e-8937-f25075e41925",
+                "type": "pulumi:providers:docker",
+                "inputs": {
+                    "version": "4.5.4"
+                },
+                "outputs": {
+                    "version": "4.5.4"
+                },
+                "created": "2024-06-28T16:03:40.541371152Z",
+                "modified": "2024-06-28T16:03:40.541371152Z"
+            },
+            {
+                "urn": "urn:pulumi:dev::Hollow_Seek::docker:index/image:Image::clamav-image",
+                "custom": true,
+                "id": "localhost/clamav_cont:v1.0",
+                "type": "docker:index/image:Image",
+                "inputs": {
+                    "build": {
+                        "context": "/home/gab/scan/user_1/cont_1",
+                        "contextDigest": "d5e027c10171a5d7c62cccb525e78f1dbc9a6534240e457023a89a16e94fff13",
+                        "dockerfile": "/home/gab/scan/user_1/cont_1/Dockerfile",
+                        "platform": "linux/amd64"
+                    },
+                    "buildOnPreview": false,
+                    "imageName": "localhost/clamav_cont:v1.0",
+                    "skipPush": true
+                },
+                "outputs": {
+                    "__inputs": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "AAABAMd6IDEcjieleqwMFkeYCkJMf5OiAbHl+rrCfTFGVvgs3Y5IM+F8s6JcOJl2LNEgrEZU4fG8aedmh5unhu2meojumjlbGi56ie/g4vCWoee95lzeF8h7xQvvyY3eCqEib9buXOfu+W6noDEkQEeF3pafjAt8SWikSJZosxSvOSFkAePfyz0EXpLCwXBZgL0o3s60quP8mq2tmZzxnRGEWPAy2WbB1Wn7IgTpfEiSPei6msM+DmpDlj/XkCy0JqM79psV8b+Iznt7+uv5nN6j75pxxaJENn1vcDpkF54uPMFmgAECG6O8DvQS84OpNu3OOgZ+0Fo0XHDiPf8NH9lpL74rcwPPz2lLVrgS/YB0uU6gFPueXmgWr0Nm1k6Bn/fwx2pl6s8+pj74oEAiK3ctCV5d5gR8X17QpUFHvxOoOLRGLqj+"
+                    },
+                    "baseImageName": "localhost/clamav_cont:v1.0",
+                    "context": "/home/gab/scan/user_1/cont_1",
+                    "dockerfile": "Dockerfile",
+                    "imageName": "localhost/clamav_cont:v1.0",
+                    "platform": "linux/amd64",
+                    "registryServer": "",
+                    "repoDigest": "sha256:ee8a54b4c52ac7b875ca10bd53ff2d7412901e38898baae3186ac3390d142453"
+                },
+                "parent": "urn:pulumi:dev::Hollow_Seek::pulumi:pulumi:Stack::Hollow_Seek-dev",
+                "provider": "urn:pulumi:dev::Hollow_Seek::pulumi:providers:docker::default_4_5_4::e656e590-85b7-431e-8937-f25075e41925",
+                "propertyDependencies": {
+                    "build": [],
+                    "buildOnPreview": [],
+                    "imageName": [],
+                    "skipPush": []
+                },
+                "created": "2024-06-28T18:15:35.804584499Z",
+                "modified": "2024-06-28T20:53:27.589253131Z",
+                "sourcePosition": "project:///venv/lib/python3.12/site-packages/pulumi_docker/image.py#313"
+            },
+            {
+                "urn": "urn:pulumi:dev::Hollow_Seek::docker:index/container:Container::c1_user_x",
+                "custom": true,
+                "id": "b6177c83282ef1159be79e4375438d51b3f233cb9957100f85078215850b0218",
+                "type": "docker:index/container:Container",
+                "inputs": {
+                    "__defaults": [
+                        "attach",
+                        "containerReadRefreshTimeoutMilliseconds",
+                        "logs",
+                        "mustRun",
+                        "readOnly",
+                        "removeVolumes",
+                        "restart",
+                        "rm",
+                        "start",
+                        "stdinOpen",
+                        "tty",
+                        "wait",
+                        "waitTimeout"
+                    ],
+                    "attach": false,
+                    "containerReadRefreshTimeoutMilliseconds": 15000,
+                    "image": "localhost/clamav_cont:v1.0",
+                    "logs": false,
+                    "mounts": [
+                        {
+                            "__defaults": [],
+                            "source": "/home/gab/scan/user_1/malware/test.py_1",
+                            "target": "/scan/log",
+                            "type": "bind"
+                        }
+                    ],
+                    "mustRun": true,
+                    "name": "c1_user_1",
+                    "readOnly": false,
+                    "removeVolumes": true,
+                    "restart": "no",
+                    "rm": false,
+                    "start": true,
+                    "stdinOpen": false,
+                    "tty": false,
+                    "wait": false,
+                    "waitTimeout": 60
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"2\"}",
+                    "attach": false,
+                    "bridge": "",
+                    "command": [
+                        "/bin/bash",
+                        "-c",
+                        "clamscan . --log=$(date +'%d-%m-%Y_%H-%M-%S').txt \u0026\u0026 mv $(ls | grep -P '(0[1-9]|1[0-9]|2[0-9]|3[0-1])-(0[1-9]|1[0-2])-(2[0-9][2-9][4-9])_(0[0-9]|1[0-9]|2[0-3])-([0-5][0-9])-([0-5][0-9]).txt') log/"
+                    ],
+                    "containerReadRefreshTimeoutMilliseconds": 15000,
+                    "cpuSet": "",
+                    "cpuShares": 0,
+                    "devices": [],
+                    "dns": [],
+                    "dnsOpts": [],
+                    "dnsSearches": [],
+                    "domainname": "",
+                    "entrypoints": [],
+                    "envs": [],
+                    "groupAdds": [],
+                    "hostname": "b6177c83282e",
+                    "hosts": [],
+                    "id": "b6177c83282ef1159be79e4375438d51b3f233cb9957100f85078215850b0218",
+                    "image": "sha256:fadec1aaf7d7fb713c3bc6bd68cee01abfc6c037fbc11617e1efdbcafbe502cb",
+                    "init": false,
+                    "ipcMode": "private",
+                    "labels": [],
+                    "logDriver": "json-file",
+                    "logOpts": {},
+                    "logs": false,
+                    "maxRetryCount": 0,
+                    "memory": 0,
+                    "memorySwap": 0,
+                    "mounts": [
+                        {
+                            "bindOptions": null,
+                            "readOnly": false,
+                            "source": "/home/gab/scan/user_1/malware/test.py_1",
+                            "target": "/scan/log",
+                            "tmpfsOptions": null,
+                            "type": "bind",
+                            "volumeOptions": null
+                        }
+                    ],
+                    "mustRun": true,
+                    "name": "c1_user_1",
+                    "networkDatas": [
+                        {
+                            "gateway": "172.17.0.1",
+                            "globalIpv6Address": "",
+                            "globalIpv6PrefixLength": 0,
+                            "ipAddress": "172.17.0.2",
+                            "ipPrefixLength": 16,
+                            "ipv6Gateway": "",
+                            "macAddress": "02:42:ac:11:00:02",
+                            "networkName": "bridge"
+                        }
+                    ],
+                    "networkMode": "bridge",
+                    "pidMode": "",
+                    "ports": [],
+                    "privileged": false,
+                    "publishAllPorts": false,
+                    "readOnly": false,
+                    "removeVolumes": true,
+                    "restart": "no",
+                    "rm": false,
+                    "runtime": "runc",
+                    "securityOpts": [],
+                    "shmSize": 64,
+                    "start": true,
+                    "stdinOpen": false,
+                    "stopSignal": "",
+                    "stopTimeout": 0,
+                    "storageOpts": {},
+                    "sysctls": {},
+                    "tmpfs": {},
+                    "tty": false,
+                    "ulimits": [],
+                    "user": "",
+                    "usernsMode": "",
+                    "wait": false,
+                    "waitTimeout": 60,
+                    "workingDir": "/scan"
+                },
+                "parent": "urn:pulumi:dev::Hollow_Seek::pulumi:pulumi:Stack::Hollow_Seek-dev",
+                "dependencies": [
+                    "urn:pulumi:dev::Hollow_Seek::docker:index/image:Image::clamav-image"
+                ],
+                "provider": "urn:pulumi:dev::Hollow_Seek::pulumi:providers:docker::default_4_5_4::e656e590-85b7-431e-8937-f25075e41925",
+                "propertyDependencies": {
+                    "image": [
+                        "urn:pulumi:dev::Hollow_Seek::docker:index/image:Image::clamav-image"
+                    ],
+                    "mounts": [],
+                    "name": []
+                },
+                "pendingReplacement": true,
+                "created": "2024-06-28T18:15:39.226900761Z",
+                "modified": "2024-06-28T18:15:39.226900761Z",
+                "sourcePosition": "project:///venv/lib/python3.12/site-packages/pulumi_docker/container.py#2339"
+            }
+        ]
+    }
+}

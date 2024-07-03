@@ -1,0 +1,11 @@
+name: Hollow_Seek
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+description: A minimal Python Pulumi program for deploying Docker containers
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: python
