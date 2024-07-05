@@ -11,7 +11,7 @@ CONT_DIR=~/scan/user_1/cont_1
 DOCKERFILE_SRC=~/dockerfile_av_image/clamav/Dockerfile
 
 # Répertoire du script Pulumi
-PULUMI_DIR=~/pa/script_pulumi
+PULUMI_DIR=~/pulumi_script
 
 # Assurez-vous que les répertoires cont_1 et malware existent
 mkdir -p "$MAL_DIR"
@@ -49,8 +49,8 @@ do
     cd "$PULUMI_DIR"
     source "venv/bin/activate"
 
-    pulumi up --yes >> ~/log_bash_script/log_pulumi.txt
+    pulumi up --yes >> ~/log_bash/log_pulumi.txt
 
     #deactivate
-    echo "Fichier $FILE_NAME traité et déplacé dans $NEW_DIR et copié dans cont_1 avec le Dockerfile." >> ~/log_bash_script/log.txt
+    echo "Fichier $FILE_NAME traité et déplacé dans $NEW_DIR et copié dans cont_1 avec le Dockerfile." >> ~/log_bash/log.txt
 done
